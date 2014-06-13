@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-</head>
-<body>
+{% extends 'feedback/index.html' %}
+{% block Container %}
 	<div class="page-header">
 	  <h1>Get Feedback</h1>
 	</div>
-</body>
-</html>
+
+	<form action="" method="post">{% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="submit" value="Send message" />
+	</form>
+
+{% endblock Container %}
+

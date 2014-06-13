@@ -20,6 +20,7 @@
   </head>
 
   <body>
+  {% block Container %}
     <div class="container">
 
       <h1>Foolish 360 Feedback</h1>
@@ -28,13 +29,15 @@
         {% endblock Coach %}
 
         <p>
-          <a href="/feedback/get_base/" class="btn btn-primary btn-lg">Get Feedback</a>
-          <a href="/feedback/give_base/" class="btn btn-success btn-lg">Give Feedback</button>
+          <a href="get_feedback" class="btn btn-primary btn-lg">Get Feedback</a>
+          <a href="give_feedback" class="btn btn-success btn-lg">Give Feedback</a>
         </p>
+  {% endblock Container %}
 
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
