@@ -1,9 +1,10 @@
 from django.conf.urls import patterns, url
 
-from feedback.views import BaseFeedbackView, GetFeedbackView, GiveFeedbackView
+from feedback.views import BaseFeedbackView, ChooseCoachView, SendInvitesView, SendFeedbackView
 
 urlpatterns = patterns('',
     url(r'^$', BaseFeedbackView.as_view(), name='index'),
-    url(r'^get_feedback/', GetFeedbackView.as_view(), name='get_feedback'),
-    url(r'^give_feedback/', GiveFeedbackView.as_view(), name='give_feedback'),
+    url(r'^receive/(?P<pk>[\d-]+)', ChooseCoachView.as_view(), name='receive'),
+    url(r'^receive/send_invites/(?P<pk>[\d-]+)', SendInvitesView.as_view(), name='send_invites'),
+    url(r'^send', SendFeedbackView.as_view(), name='send'),
 )

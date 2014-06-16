@@ -1,0 +1,16 @@
+{% extends 'feedback/index.html' %}
+{% block Container %}
+	<div class="container">
+		<div class="page-header">
+		  <h1>Invite other Fools to give you feedback,</h1>
+		</div>
+
+		<h3>
+
+		<form action="" method="post">{% csrf_token %}
+		    {{ form.as_p }}
+		    <input type="submit" value="Send message" />
+		</form>
+	</div>
+
+{% endblock Container %}
