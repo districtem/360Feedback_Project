@@ -1,34 +1,21 @@
 import functools
-from django.forms.models import inlineformset_factory
+from django.forms.models import inlineformset_factory, modelformset_factory
 from django import forms
 from django.forms import widgets
 
-from feedback.models import Employee, Feedback, FeedbackRecipient, FeedbackGiver, FeedbackInvitation
+from feedback.models import Employee, Feedback, FeedbackRequest
 
 
-class CoachForm(forms.ModelForm):
+class ReceiveFeedbackForm(forms.ModelForm):
 	class Meta:
-		model = FeedbackRecipient
+		model = Employee
 		widgets = {
-			'recipient': widgets.Select(),
+			'user': widgets.HiddenInput(),
             'coach': widgets.Select(),
+            'is_coach': widgets.HiddenInput()
         }
 
 	def notify_coach(coach):
 		pass
 
-
-class FeedbackInviteForm(forms.ModelForm):
-	class Meta:
-		model = FeedbackInvitation
-		widgets = {
-			'invite_sender': widgets.Select(),
-			'invite_accepted': widgets.HiddenInput(),
-            'invite_receiver': widgets.Select(),
-        }
-
-	def send_invite(invitee):
-		pass
-
-
-FeedbackFormset = inlineformset_factory(FeedbackGiver, Feedback, extra=1, widgets={'fool_numerical_recommendation': widgets.RadioSelect()})
+FeedbackRequestFormset = modelformset_factory(FeedbackRequest, extra=3)
