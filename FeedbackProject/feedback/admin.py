@@ -1,8 +1,6 @@
 from django.contrib import admin
-from feedback.models import Employee, FeedbackRecipient, Feedback, FeedbackGiver, FeedbackInvitation
+from feedback.models import Employee, Feedback, FeedbackRequest
 
 admin.site.register(Employee)
-admin.site.register(FeedbackRecipient)
 admin.site.register(Feedback)
-admin.site.register(FeedbackGiver)
-admin.site.register(FeedbackInvitation)
+admin.site.register(FeedbackRequest)
